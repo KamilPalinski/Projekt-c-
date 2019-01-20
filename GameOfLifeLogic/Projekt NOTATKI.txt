@@ -1,0 +1,6 @@
+-animacja wejscie,
+-muzyka
+-menu, opcje
+
+-kwadrat zamiast x
+..............
