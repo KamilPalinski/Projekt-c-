@@ -30,9 +30,8 @@ namespace WpfApp4
         {
             try
             {
-                var s = textBox1.Text;
                 var z = textBox.Text;
-                int dlugosc = Convert.ToInt32(s);
+                int dlugosc = Convert.ToInt32(z);
                 int wysokosc = Convert.ToInt32(z);
             
             
@@ -49,9 +48,9 @@ namespace WpfApp4
                       obszarGry.Children.Add(plansza);
                     Canvas.SetLeft(plansza, j * obszarGry.ActualWidth / wysokosc);
                     Canvas.SetTop(plansza, i * obszarGry.ActualHeight / dlugosc);
-
+                        plansza.MouseDown += klikniecie;
                         textBox.Clear();
-                        textBox1.Clear();
+                        
 
 
                     }
@@ -65,9 +64,19 @@ namespace WpfApp4
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void klikniecie(object sender, MouseButtonEventArgs e)
         {
-            
+            if  (e.RightButton == MouseButtonState.Pressed)
+                {
+                ((Rectangle)sender).Fill = Brushes.Red;
+                }
+
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                ((Rectangle)sender).Fill = Brushes.Blue;
+            }
         }
+
+       
     }
 }
